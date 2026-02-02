@@ -2,78 +2,7 @@
 
 Practical exercises and demonstrations for network programming, protocol analysis, and performance testing using Docker containers and Python.
 
-## 📚 Lectures Overview
-
-### [Lecture 1: Scapy Networking Exercises](Lecture_1/)
-**Packet crafting and network analysis with Scapy**
-
-Learn network fundamentals through hands-on exercises:
-- Route lookup and routing table queries
-- Network configuration (router IP, local IP, MAC addresses)
-- Subnetting skills (subnet merging, network splitting, supernet calculations)
-
-**Tech:** Scapy, Docker, Python
-
----
-
-### [Lecture 2.1: RIP Network Analysis](Lecture_2.1/)
-**Routing Information Protocol (RIP) analysis**
-
-Analyze RIP network announcements and CIDR class assignments:
-- Router network configuration
-- Candidate network evaluation
-- CIDR class validation and network comparisons
-- Multiple test scenarios for different network topologies
-
-**Tech:** Python, Docker, RIP protocol
-
----
-
-### [Lecture 2.2: Socket Communication](Lecture_2.2/)
-**TCP/UDP socket programming with Docker**
-
-Implement and test network socket communication:
-- TCP client-server communication (echo server on port 10000)
-- UDP client-server communication (echo server on port 10001)
-- Multi-container orchestration with Docker Compose
-- Connection-oriented vs connectionless protocols
-
-**Tech:** Python sockets, Docker, TCP/UDP
-
----
-
-### [Lecture 4: Multicast Communication](Lecture_4/)
-**IP multicast socket programming**
-
-Explore multicast networking patterns:
-- Multicast sender broadcasting to group 224.10.10.10:10000
-- Multicast receiver with group subscription
-- One-to-many communication patterns
-- Multicast address management
-
-**Tech:** Python multicast sockets, Docker
-
----
-
-### [Lecture 5: Network Performance Testing](Lecture_5/)
-**iperf3 performance measurement and packet capture**
-
-Measure and analyze network throughput:
-- TCP and UDP bandwidth testing with iperf3
-- Real-time packet capture with tcpdump
-- Wireshark analysis workflows (Windows/Mac/Linux compatible)
-- Performance metrics (throughput, jitter, packet loss)
-
-**Opening pcap files:**
-- Windows: `& "C:\Program Files\Wireshark\Wireshark.exe" results/iperf-traffic.pcap`
-- Mac: `open -a Wireshark results/iperf-traffic.pcap`
-- Linux: `wireshark results/iperf-traffic.pcap`
-
-**Tech:** iperf3, tcpdump, Wireshark, Docker
-
----
-
-## 🚀 Getting Started
+## � Getting Started
 
 ### Prerequisites
 
@@ -151,7 +80,80 @@ cd Lecture_X
 docker-compose up --build
 ```
 
-## 📂 Repository Structure
+---
+
+## �📚 Lectures Overview
+
+### [Lecture 1: Scapy Networking Exercises](Lecture_1/)
+**Packet crafting and network analysis with Scapy**
+
+Learn network fundamentals through hands-on exercises:
+- Route lookup and routing table queries
+- Network configuration (router IP, local IP, MAC addresses)
+- Subnetting skills (subnet merging, network splitting, supernet calculations)
+
+**Tech:** Scapy, Docker, Python
+
+---
+
+### [Lecture 2.1: RIP Network Analysis](Lecture_2.1/)
+**Routing Information Protocol (RIP) analysis**
+
+Analyze RIP network announcements and CIDR class assignments:
+- Router network configuration
+- Candidate network evaluation
+- CIDR class validation and network comparisons
+- Multiple test scenarios for different network topologies
+
+**Tech:** Python, Docker, RIP protocol
+
+---
+
+### [Lecture 2.2: Socket Communication](Lecture_2.2/)
+**TCP/UDP socket programming with Docker**
+
+Implement and test network socket communication:
+- TCP client-server communication (echo server on port 10000)
+- UDP client-server communication (echo server on port 10001)
+- Multi-container orchestration with Docker Compose
+- Connection-oriented vs connectionless protocols
+
+**Tech:** Python sockets, Docker, TCP/UDP
+
+---
+
+### [Lecture 4: Multicast Communication](Lecture_4/)
+**IP multicast socket programming**
+
+Explore multicast networking patterns:
+- Multicast sender broadcasting to group 224.10.10.10:10000
+- Multicast receiver with group subscription
+- One-to-many communication patterns
+- Multicast address management
+
+**Tech:** Python multicast sockets, Docker
+
+---
+
+### [Lecture 5: Network Performance Testing](Lecture_5/)
+**iperf3 performance measurement and packet capture**
+
+Measure and analyze network throughput:
+- TCP and UDP bandwidth testing with iperf3
+- Real-time packet capture with tcpdump
+- Wireshark analysis workflows (Windows/Mac/Linux compatible)
+- Performance metrics (throughput, jitter, packet loss)
+
+**Opening pcap files:**
+- Windows: `& "C:\Program Files\Wireshark\Wireshark.exe" results/iperf-traffic.pcap`
+- Mac: `open -a Wireshark results/iperf-traffic.pcap`
+- Linux: `wireshark results/iperf-traffic.pcap`
+
+**Tech:** iperf3, tcpdump, Wireshark, Docker
+
+---
+
+##  Repository Structure
 
 ```
 uniovi_nw_engineering/
