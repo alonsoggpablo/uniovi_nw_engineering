@@ -61,8 +61,13 @@ Explore multicast networking patterns:
 Measure and analyze network throughput:
 - TCP and UDP bandwidth testing with iperf3
 - Real-time packet capture with tcpdump
-- Wireshark analysis workflows
+- Wireshark analysis workflows (Windows/Mac/Linux compatible)
 - Performance metrics (throughput, jitter, packet loss)
+
+**Opening pcap files:**
+- Windows: `& "C:\Program Files\Wireshark\Wireshark.exe" results/iperf-traffic.pcap`
+- Mac: `open -a Wireshark results/iperf-traffic.pcap`
+- Linux: `wireshark results/iperf-traffic.pcap`
 
 **Tech:** iperf3, tcpdump, Wireshark, Docker
 
@@ -72,9 +77,64 @@ Measure and analyze network throughput:
 
 ### Prerequisites
 
-- **Docker** and **Docker Compose** installed
-- **Python 3.11+** (for local development)
+#### Docker Installation
+
+**Windows:**
+```powershell
+# 1. Enable WSL 2 (required for Docker Desktop)
+wsl --install
+
+# Restart your computer, then:
+
+# 2. Install Docker Desktop
+winget install Docker.DockerDesktop
+
+# Or download Docker Desktop from:
+# https://www.docker.com/products/docker-desktop/
+
+# Note: Docker Desktop uses WSL 2 backend by default (recommended)
+# Requirements: Windows 10/11 with WSL 2 enabled
+```
+
+**Mac:**
+```bash
+# Using Homebrew
+brew install --cask docker
+
+# Or download Docker Desktop from:
+# https://www.docker.com/products/docker-desktop/
+```
+
+**Linux (Ubuntu/Debian):**
+```bash
+# Update package index
+sudo apt-get update
+
+# Install dependencies
+sudo apt-get install ca-certificates curl gnupg lsb-release
+
+# Add Docker's official GPG key
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+# Set up repository
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Install Docker Engine
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# Add user to docker group (optional, to run without sudo)
+sudo usermod -aG docker $USER
+```
+
+#### Other Prerequisites
+
+- **Python 3.11+** (for local development, optional)
 - **Wireshark** (optional, for Lecture 5 packet analysis)
+  - Windows: `winget install WiresharkFoundation.Wireshark`
+  - Mac: `brew install --cask wireshark`
+  - Linux: `sudo apt-get install wireshark`
 
 ### General Workflow
 
@@ -151,4 +211,7 @@ Educational material for Network Engineering course at University of Oviedo.
 
 ## 👤 Author
 
-University of Oviedo - Network Engineering Course
+Dr. Pablo Alonso García
+Telecom Engineering PhD
+University of Oviedo
+
