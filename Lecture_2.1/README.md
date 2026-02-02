@@ -1,4 +1,4 @@
-# Lecture 2: RIP Network Analysis
+# Lecture 2.1: RIP Network Analysis
 
 This folder contains a Python script that analyzes RIP (Routing Information Protocol) network announcements and CIDR class assignments.
 

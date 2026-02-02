@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  # TCP Server
+  tcp-server:
+    build: .
+    container_name: tcp-server
+    command: python3 tcp_server_docker.py
+    ports:
+      - "10000:10000"
+    networks:
+      - socket-network
+    environment:
+      PYTHONUNBUFFERED: 1
+    stdin_open: true
+    tty: true
+
+  # TCP Client
+  tcp-client:
+    build: .
+    container_name: tcp-client
+    command: python3 tcp_client_docker.py
+    depends_on:
+      - tcp-server
+    networks:
+      - socket-network
+    environment:
+      PYTHONUNBUFFERED: 1
+    stdin_open: true
+    tty: true
+
+  # UDP Server
+  udp-server:
+    build: .
+    container_name: udp-server
+    command: python3 udp_server_docker.py
+    ports:
+      - "10001:10001/udp"
+    networks:
+      - socket-network
+    environment:
+      PYTHONUNBUFFERED: 1
+    stdin_open: true
+    tty: true
+
+  # UDP Client
+  udp-client:
+    build: .
+    container_name: udp-client
+    command: python3 udp_client_docker.py
+    depends_on:
+      - udp-server
+    networks:
+      - socket-network
+    environment:
+      PYTHONUNBUFFERED: 1
+    stdin_open: true
+    tty: true
+
+networks:
+  socket-network:
+    driver: bridge

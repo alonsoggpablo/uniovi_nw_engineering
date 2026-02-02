@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  # Multicast Sender
+  multicast-sender:
+    build: .
+    container_name: multicast-sender
+    command: python3 multicast_sender.py
+    network_mode: host
+    environment:
+      PYTHONUNBUFFERED: 1
+    stdin_open: true
+    tty: true
+
+  # Multicast Receiver
+  multicast-receiver:
+    build: .
+    container_name: multicast-receiver
+    command: python3 multicast_receiver.py
+    network_mode: host
+    environment:
+      PYTHONUNBUFFERED: 1
+    stdin_open: true
+    tty: true

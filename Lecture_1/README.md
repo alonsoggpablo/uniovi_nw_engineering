@@ -1,4 +1,4 @@
-# Scapy Networking Exercises
+# Lecture 1: Scapy Networking Exercises
 
 This project provides a Docker-based environment for running Scapy networking exercises as part of the Network Engineering course at the University of Oviedo.
 

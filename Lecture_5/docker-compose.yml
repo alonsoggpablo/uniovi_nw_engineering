@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  iperf-server:
+    build: .
+    container_name: iperf-server
+    command: python iperf_server.py
+    networks:
+      - iperf-network
+    ports:
+      - "6969:6969"
+    volumes:
+      - ./results:/app/results
+
+  iperf-client-tcp:
+    build: .
+    container_name: iperf-client-tcp
+    command: python iperf_client.py tcp
+    depends_on:
+      - iperf-server
+    networks:
+      - iperf-network
+    volumes:
+      - ./results:/app/results
+
+  iperf-client-udp-limited:
+    build: .
+    container_name: iperf-client-udp-limited
+    command: python iperf_client.py udp 1M
+    depends_on:
+      - iperf-server
+    networks:
+      - iperf-network
+    volumes:
+      - ./results:/app/results/results
+    profiles:
+      - udp
+
+  iperf-client-udp-unlimited:
+    build: .
+    container_name: iperf-client-udp-unlimited
+    command: python iperf_client.py udp 0
+    depends_on:
+      - iperf-server
+    volumes:
+      - ./results:/app
+    networks:
+      - iperf-network
+    profiles:
+      - udp
+
+  tcpdump-capture:
+    build: .
+    container_name: tcpdump-capture
+    command: tcpdump -i any -w /app/results/iperf-traffic.pcap port 6969
+    network_mode: "service:iperf-server"
+    volumes:
+      - ./results:/app/results
+    cap_add:
+      - NET_ADMIN
+    profiles:
+      - capture
+
+networks:
+  iperf-network:
+    driver: bridge
