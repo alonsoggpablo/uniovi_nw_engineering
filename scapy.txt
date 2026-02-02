@@ -1,0 +1,61 @@
+SCAPY NETWORKING EXERCISES
+================================================================================
+
+EXERCISE 1: Route Lookup
+================================================================================
+Get the route for a specific IP:
+
+    conf.route.route("8.8.8.8")
+
+
+EXERCISE 2: Network Configuration
+================================================================================
+Get the IP address of your router and your default interface IP and MAC:
+
+  a) Router IP address
+    
+    gw = conf.route.route("0.0.0.0")[2]
+
+  b) Local IP / IP of an interface
+    
+    ip = get_if_addr(conf.iface)
+
+  c) Local MAC
+    
+    mac = get_if_hwaddr(conf.iface)
+
+  d) MAC by IP
+    
+    mac = getmacbyip("10.0.0.1")
+
+
+EXERCISE 3: Train Your Subnetting Skills
+================================================================================
+
+3a) Merge two /25 subnets:
+
+    from netaddr import *
+    
+    ip1 = IPNetwork('192.0.4.0/25')
+    iplist = [ip for ip in ip1]
+    iplist.append(IPNetwork('192.0.4.128/25'))
+    cidr_merge(iplist)
+
+
+3b) Split a large class B network into smaller /23 subnets:
+
+    >>> ip = IPNetwork('172.24.0.0/16')
+    >>> subnets = list(ip.subnet(23))
+    128
+    >>> subnets
+    [IPNetwork('172.24.0.0/23'), IPNetwork('172.24.2.0/23'), 
+     IPNetwork('172.24.4.0/23'), ...,
+     IPNetwork('172.24.250.0/23'), IPNetwork('172.24.252.0/23'), 
+     IPNetwork('172.24.254.0/23')]
+
+
+3c) Retrieve the list of supernets for an IP address 
+    (starting from a /16):
+
+    >>> ip = IPNetwork('192.0.2.114')
+    >>> supernets = ip.supernet(16)

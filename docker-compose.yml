@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  scapy:
+    image: python:3.11-slim
+    container_name: scapy-container
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      PYTHONUNBUFFERED: 1
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    network_mode: host
+    command: sh -c "pip install scapy netaddr && tail -f /dev/null"
+    stdin_open: true
+    tty: true
