@@ -212,6 +212,8 @@ Educational material for Network Engineering course at University of Oviedo.
 ## 👤 Author
 
 Dr. Pablo Alonso García
+
 Telecom Engineering PhD
+
 University of Oviedo
 
