@@ -2,7 +2,7 @@
 
 Practical exercises and demonstrations for network programming, protocol analysis, and performance testing using Docker containers and Python.
 
-## � Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -82,7 +82,7 @@ docker-compose up --build
 
 ---
 
-## �📚 Lectures Overview
+## 📚 Lectures Overview
 
 ### [Lecture 1: Scapy Networking Exercises](Lecture_1/)
 **Packet crafting and network analysis with Scapy**
