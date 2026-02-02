@@ -16,6 +16,21 @@ The project includes three main exercises:
 
 ## Quick Start
 
+### 0. Start the Docker Container
+
+First, navigate to the `Lecture 1` directory and start the Docker containers:
+
+```bash
+cd Lecture 1
+docker-compose up -d
+```
+
+Wait a moment for the container to start. You can check the status with:
+
+```bash
+docker-compose ps
+```
+
 ### 1. Run the Exercises Script
 
 Execute all exercises at once:
@@ -105,19 +120,38 @@ supernets = ip.supernet(16)  # All supernets from /16 to /31
 
 ## Troubleshooting
 
+### Service "scapy" is not running
+You need to start the Docker containers first:
+```bash
+docker-compose up -d
+```
+
 ### Container won't start
+Try restarting:
 ```bash
 docker-compose restart
 ```
 
+Or view logs to diagnose:
+```bash
+docker-compose logs scapy
+```
+
 ### Permission denied errors
-Ensure you have proper permissions to run Docker:
+Ensure you have proper permissions to run Docker. On Linux, you may need:
 ```bash
 sudo docker-compose up -d
 ```
 
 ### Can't find scapy_exercises.py
-Make sure the file is in the same directory as docker-compose.yml and run from the workspace root.
+Make sure you're running commands from the `Lecture 1` directory (same location as docker-compose.yml):
+```bash
+cd "Lecture 1"
+docker-compose exec -T scapy python3 scapy_exercises.py
+```
+
+### Version warning in output
+The warning about the obsolete `version` attribute is harmless and can be ignored, or remove the `version:` line from docker-compose.yml to suppress it.
 
 ## Dependencies
 
