@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  bgp:
+    build: .
+    container_name: bgp_lecture3
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: ./start.sh
+    network_mode: bridge
