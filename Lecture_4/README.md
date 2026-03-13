@@ -11,6 +11,13 @@ This folder contains Python implementations for multicast socket communication u
     ```
     This prints the MAC address for the IP `238.119.45.10`.
 
+- **igmp_packet.py** - Example script for creating and displaying an IGMP packet using Scapy. Useful for learning IGMP packet structure and fields. Example usage:
+
+    ```bash
+    python igmp_packet.py
+    ```
+    This prints the details of an IGMP packet with type 23 and group address '224.2.3.4'.
+
 - **multicast_sender.py** - Multicast sender (broadcasts messages to group 224.10.10.10:10000)
 - **multicast_receiver.py** - Multicast receiver (listens to multicast group, sends acknowledgements)
 - **socket_multicast_sender.py** - Alternative multicast sender implementation
