@@ -1,0 +1,55 @@
+time="2026-02-02T15:33:39+01:00" level=warning msg="/home/pablo/uniovi_nw_engineering/Lecture_1/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+
+============================================================
+SCAPY NETWORKING EXERCISES
+============================================================
+
+1. Route for 8.8.8.8:
+   Route: ('eth0', '0.0.0.0', '192.168.65.1')
+   Interface: eth0
+   Destination: 0.0.0.0
+   Gateway: 192.168.65.1
+
+2. Network Configuration:
+   Gateway (Router IP): 192.168.65.1
+   Local IP: 192.168.65.3
+   Local MAC: 8a:8c:15:cc:4c:15
+
+3. Subnetting Exercises:
+
+   a) Merge two /25 subnets (192.0.4.0/25 + 192.0.4.128/25):
+      Input subnet 1: 192.0.4.0/25 (128 hosts)
+      Input subnet 2: 192.0.4.128/25 (128 hosts)
+      Merged result: [IPNetwork('192.0.4.0/24')]
+
+   b) Split class B network (172.24.0.0/16) into /23 subnets:
+      Parent network: 172.24.0.0/16
+      Number of /23 subnets: 128
+      First 5 subnets: [IPNetwork('172.24.0.0/23'), IPNetwork('172.24.2.0/23'), IPNetwork('172.24.4.0/23'), IPNetwork('172.24.6.0/23'), IPNetwork('172.24.8.0/23')]
+      Last 5 subnets: [IPNetwork('172.24.246.0/23'), IPNetwork('172.24.248.0/23'), IPNetwork('172.24.250.0/23'), IPNetwork('172.24.252.0/23'), IPNetwork('172.24.254.0/23')]
+
+   c) Supernets for 192.0.2.114 (starting from /16):
+      IP Address: 192.0.2.114
+      Number of supernets: 16
+      Supernets:
+        1. 192.0.0.0/16
+        2. 192.0.0.0/17
+        3. 192.0.0.0/18
+        4. 192.0.0.0/19
+        5. 192.0.0.0/20
+        6. 192.0.0.0/21
+        7. 192.0.0.0/22
+        8. 192.0.2.0/23
+        9. 192.0.2.0/24
+        10. 192.0.2.0/25
+        11. 192.0.2.64/26
+        12. 192.0.2.96/27
+        13. 192.0.2.112/28
+        14. 192.0.2.112/29
+        15. 192.0.2.112/30
+        16. 192.0.2.114/31
+
+============================================================
+Exercises completed successfully!
+============================================================
+

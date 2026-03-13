@@ -1,0 +1,21 @@
+sudo apt-get install iperf3 
+pip install iperf3 
+import iperf3 
+server = iperf3.Server() 
+server.bind_address = '127.0.0.1' 
+server.port = 6969 
+server.protocol='tcp' 
+server.verbose = True 
+while True: 
+server.run() 
+python iperf_server.py 
++ Check with netstat -an the port being listened 
+netstat -an 
+TCP    127.0.0.1:6969         
+0.0.0.0:0              
++ Perform UDP and TCP tests. 
+#From Linux Shell: 
+LISTENING 
+#iperf3 -c 127.0.0.1 -p 6969 , if server is TCP 
+#iperf3 -c 127.0.0.1 -p 6969 -u, limits UDP to 1 Mbps 
+#iperf3 -c 127.0.0.1 -p 6969 -u -b 0, no limit to thrp 

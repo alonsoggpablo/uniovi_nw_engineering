@@ -4,6 +4,13 @@ This folder contains Python implementations for multicast socket communication u
 
 ## Files
 
+- **multicast.py** - Utility to convert multicast IP addresses to their corresponding MAC addresses. Example usage:
+
+    ```bash
+    python multicast.py
+    ```
+    This prints the MAC address for the IP `238.119.45.10`.
+
 - **multicast_sender.py** - Multicast sender (broadcasts messages to group 224.10.10.10:10000)
 - **multicast_receiver.py** - Multicast receiver (listens to multicast group, sends acknowledgements)
 - **socket_multicast_sender.py** - Alternative multicast sender implementation
