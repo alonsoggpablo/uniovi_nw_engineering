@@ -49,6 +49,23 @@ docker-compose up --build multicast-receiver
 docker-compose up --build multicast-sender
 ```
 
+### Run multicast.py or igmp_packet.py in Docker
+
+You can run these scripts in a container using the Dockerfile provided. Build the image and run:
+
+```bash
+# Build the Docker image
+docker build -t multicast-tools .
+
+# Run multicast.py
+docker run --rm multicast-tools python3 multicast.py
+
+# Run igmp_packet.py
+docker run --rm multicast-tools python3 igmp_packet.py
+```
+
+This will execute the scripts inside a Python 3.11 container with all dependencies installed.
+
 ### View Individual Service Logs
 
 ```bash
